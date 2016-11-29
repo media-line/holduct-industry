@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+	<name>Static map</name>
+	<author>Lange D.M.</author>
+	<creationDate>Febriary 2016</creationDate>
+	<copyright>Copyright (C) www.medialine.by</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<authorEmail>dlange@medialine.by</authorEmail>
+	<authorUrl>www.medialine.by</authorUrl>
+	<version>1.0.0</version>
+	<description>Модуль выводит яндекс карту</description>
+
+	<files>
+		<filename module="mod_staticmap">mod_staticmap.php</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="map_title"
+					type="text"
+					label="Заголовок карты"
+					description="Заголовок карты"/>
+				<field
+					name="map_desc"
+					type="editor"
+					filter="saehtml"
+					height = "150"
+					label="Текст карты"
+					description="Текст карты"/>
+				<field
+					name="map_image"
+					type="media"
+					label="Изображение карты"
+					description="Изображение карты"/>
+				<field
+					name="marker_image"
+					type="media"
+					label="Изображение маркера"
+					description="По умолчанию прозрачный кружок 15px"/>	
+				<field name="markers_list"
+					type="Repeatable"
+					icon="list"
+					description="Список маркеров на карте"
+					label="Список маркеров"
+					default=""
+					select="Добавить">
+					<fieldset name="markers" repeat="true">
+						<field name="left_indent"
+							label="Отступ слева"
+							type="text" />
+						<field name="top_indent"
+							label="Отступ сверху"
+							type="text" />
+						<field
+							name="size"
+							type="list"
+							label="Размер маркера">
+							<option value="small">Маленький</option>
+							<option value="medium">Средний</option>
+							<option value="large">Большой</option>
+						</field>
+
+					</fieldset>
+				</field>
+				<field name="map_width"
+					label="Длинна карты"
+					type="text" 
+					default="100%" />
+				<field name="map_height"
+					label="Высота карты"
+					type="text"/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="border"
+					type="list"
+					default="1"
+					label="Показать границу карты"
+					description="">
+					<option
+						value="0">Нет</option>
+					<option
+						value="#ff0000">Красная</option>
+					<option
+						value="#000000">Черная</option>
+				</field>
+				<field
+					name="marker_bg"
+					type="list"
+					default="1"
+					label="Подкрасить маркер"
+					description="">
+					<option
+						value="0">Нет</option>
+					<option
+						value="rgba(255,0,0,0.5)">Красным</option>
+					<option
+						value="rgba(0,0,0,0.5)">Черным</option>
+				</field>
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

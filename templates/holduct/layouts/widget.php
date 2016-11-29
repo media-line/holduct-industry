@@ -19,8 +19,10 @@ if ($panel == '' && in_array($widget->position, array('top-a', 'top-b', 'bottom-
     $panel = $this['config']->get("panel_default.{$widget->position}.panel", '');
 }
 // Set panel for specific positions
-else if (in_array($widget->position, array('headerbar', 'toolbar-r' ,'toolbar-l', 'footer', 'offcanvas'))) {
+else if (in_array($widget->position, array('toolbar-r' ,'toolbar-l', 'footer', 'offcanvas'))) {
 	$panel = 'uk-panel';
+} else if (in_array($widget->position, array('headerbar'))) {
+	$panel = 'uk-width-1-1';
 }
 
 // Set badge
@@ -40,7 +42,7 @@ $title   = ($widget->showtitle) ? $widget->title : '';
 if (in_array($widget->position, array('headerbar', 'toolbar-r' ,'toolbar-l', 'footer'))) {
 	$title = '';
 } elseif ($title && !($widget->position == 'menu')) {
-	$title = '<h3 class="'.($title_size ? $title_size : 'uk-panel-title').'">'.$icon.$title.'</h3>';
+	$title = '<div class="'.($title_size ? $title_size : 'uk-panel-title').'">'.$icon.$title.'</div>';
 }
 
 // Render menu
@@ -52,10 +54,10 @@ if ($widget->menu) {
 	} else if (in_array($widget->position, array('menu'))) {
 		$renderer = 'navbar';
 		$widget->nav_settings["modifier"] = "uk-hidden-small";
-	} else if (in_array($widget->position, array('toolbar-l', 'toolbar-r', 'footer'))) {
+	} else if (in_array($widget->position, array('toolbar-l', 'toolbar-r'))) {
 		$renderer = 'subnav';
 		$widget->nav_settings["modifier"] = "uk-subnav-line";
-        if ($widget->position == 'footer') $widget->nav_settings["modifier"] .= " uk-flex-center";
+        //if ($widget->position == 'footer') $widget->nav_settings["modifier"] .= " uk-flex-center";
 	} else if (in_array($widget->position, array('offcanvas'))) {
 		$renderer = 'nav';
 		$widget->nav_settings["modifier"] = "uk-nav-offcanvas";

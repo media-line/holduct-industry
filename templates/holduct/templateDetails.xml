@@ -43,6 +43,7 @@
         <position settings="">toolbar-r</position>
         <position settings="">headerbar</position>
         <position settings="">breadcrumbs</position>
+        <position>slider</position>
         <position>top-a</position>
         <position>top-b</position>
         <position>bottom-a</position>
@@ -51,6 +52,9 @@
         <position>main-bottom</position>
         <position>sidebar-a</position>
         <position>sidebar-b</position>
+        <position>site-copyrate</position>
+        <position>footer-left</position>
+        <position>footer-right</position>
         <position settings="">footer</position>
         <position settings="">offcanvas</position>
         <position settings="">debug</position>

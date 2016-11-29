@@ -110,14 +110,13 @@ $config->set('body_config', json_encode($body_config));
 
 // add css
 $this['asset']->addFile('css', 'css:theme.css');
+$this['asset']->addFile('css', 'css:style.css');
 $this['asset']->addFile('css', 'css:custom.css');
 
 // add scripts
 $this['asset']->addFile('js', 'js:uikit.js');
-$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/autocomplete.js');
-$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/search.js');
-$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/tooltip.js');
-$this['asset']->addFile('js', 'js:social.js');
+$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/slider.js');
+$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/slideset.js');
 $this['asset']->addFile('js', 'js:theme.js');
 
 // internet explorer

@@ -5,6 +5,6 @@ jQuery(function($) {
     var config = $('html').data('config') || {};
 
     // Social buttons
-    $('article[data-permalink]').socialButtons(config);
+    //$('article[data-permalink]').socialButtons(config);
 
 });

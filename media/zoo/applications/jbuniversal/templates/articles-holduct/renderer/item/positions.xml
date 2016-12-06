@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    JBZoo is universal CCK, application for YooTheme Zoo Joomla component
+    @package     JBZoo
+    @author      JBZoo App http://jbzoo.com
+    @copyright   Copyright (C) JBZoo.com
+    @license     http://www.gnu.org/licenses/gpl.html GNU/GPL
+-->
+<renderer>
+    <positions layout="feed">
+        <position name="description">Description</position>
+    </positions>
+
+    <positions layout="full">
+        <position name="title">Заголовок</position>
+        <position name="media">Изображение</position>
+        <position name="content">Текст</position>
+        <position name="related">Похожие новости</position>
+    </positions>
+    <positions layout="teaser">
+        <position name="title">Заголовок</position>
+        <position name="date">Дата</position>
+        <position name="hits">Просмотры</position>
+        <position name="media">Изображение</position>
+        <position name="link">Cсылка</position>
+    </positions>
+
+    <positions layout="related">
+        <position name="title">Заголовок</position>
+        <position name="date">Дата</position>
+        <position name="hits">Просмотры</position>
+        <position name="media">Изображение</position>
+        <position name="link">Cсылка</position>
+    </positions>
+
+    <positions layout="subcategory_item">
+        <position name="title">Title</position>
+        <position name="image">Image</position>
+        <position name="properties">Properties</position>
+        <position name="text">Text</position>
+        <position name="meta">Meta</position>
+    </positions>
+
+    <positions layout="submission">
+        <position name="content">Content</position>
+        <position name="media">Media</position>
+        <position name="meta">Meta</position>
+        <position name="administration">Administration</position>
+    </positions>
+
+    <positions layout="favorite">
+        <position name="title">Title</position>
+        <position name="image">Image</position>
+        <position name="properties">Properties</position>
+        <position name="text">Text</position>
+        <position name="meta">Meta</position>
+    </positions>
+
+</renderer>

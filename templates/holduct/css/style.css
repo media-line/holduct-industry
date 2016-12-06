@@ -69,6 +69,9 @@
 body{
     font-family: 'GothamPro';
 }
+html:not(.uk-modal-page) body{
+    padding-right: 0!important;
+}
 a, a:hover, a:focus{
     text-decoration: none;
     transition: all 0.2s ease;
@@ -92,24 +95,85 @@ a:hover{
    Стили шапки / Header styles
    ===================================================================== */
 .tm-headerbar{
-    margin: 0;
-    padding: 20px 0 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px 0 0;
 }
-.tm-logo{
+.tm-logo,
+.tm-logo:focus{
     border:none;
 }
 .tm-navbar{
     margin: 0;
 }
+.uk-navbar-nav > li > a,
+.uk-navbar-nav > li > a:focus{
+    border: none;
+}
 .uk-navbar-nav > li > a{
     font-family: 'GothamPro';
-    border: none;
+    position: relative;
+    height: 53px;
 }
 .uk-navbar-nav > li:first-child > a{
     padding-left: 0;
 }
 .uk-navbar-nav > li:last-child > a{
     padding-right: 0;
+}
+.uk-navbar-nav > li > a:after{
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 0px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.uk-navbar-nav > li > a:hover:after,
+.uk-navbar-nav > li.uk-active a:after{
+    border-color: #1891ce;
+    transition: all 0.2s ease;
+}
+.uk-navbar-nav > li:first-child > a:after{
+    left: 0px;
+}
+.uk-navbar-nav > li:last-child > a:after{
+    right: 0px;
+}
+.uk-navbar-nav > li > .uk-dropdown-navbar{
+    left: 16px !important;
+}
+.uk-navbar-nav .uk-nav-navbar a{
+    padding: 8px 30px;
+    color: #fff;
+    border: none;
+}
+.uk-navbar-nav .uk-nav-navbar a:hover{
+    background: #3388ca;
+    color: #fff;
+}
+.uk-navbar-nav .uk-nav-navbar li{
+    position: relative;
+}
+.uk-navbar-nav .uk-nav-navbar .uk-nav-sub{
+    background: #3388ca;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    visibility: hidden;
+    min-width: 240px;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+.uk-navbar-nav .uk-nav-navbar li:hover .uk-nav-sub{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.2s ease;
+}
+.uk-navbar-nav .uk-nav-navbar .uk-nav-sub a:hover{
+    background: #246596;
 }
 .uk-language-select{
     padding-left: 20px;
@@ -137,46 +201,65 @@ a:hover{
 .uk-language-text a{
     color: #000;
 }
+.uk-language-text.lang-active a,
 .uk-language-text a:hover{
     color: #1891ce;
+}
+.uk-language-text.lang-active a{
+    border-color: #1891ce;
 }
 /* ========================================================================
    Стили слайдер / Slider styles
    ===================================================================== */
+.uk-slider:not(.uk-drag) {
+    -webkit-transition: -webkit-transform 600ms linear;
+    transition: transform 600ms linear;
+}
 .uk-slider-main_text{
     top: 40px;
     left: 0;
     right: 0;
 }
-.uk-dotnav{
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+.slick-slide img{
+    width: 100%;
 }
-.uk-dotnav li{
+.uk-slider-dots li{
     padding: 0;
-}
-.uk-dotnav li + li{
-    margin-left: 10px;
-}
-.uk-dotnav li a{
+    list-style: none;
     border: none;
+    width: 8px;
+    height: 8px;
     border-radius: 100%;
     border: 6px solid #fff;
     border-radius: 100%;
     padding: 0;
     transform: scale(0.7);
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
-.uk-dotnav li.uk-active a,
-.uk-dotnav li a:hover{
+.uk-slider-dots li.active,
+.uk-slider-dots li:hover{
     transform: scale(1);
+    background: #fff;
+    transition: all 0.2s ease;
+}
+.uk-slider-dots li + li{
+    margin-left: 5px;
 }
 /* ========================================================================
    Стили блока "наши клиенты" / "Our clients" block styles
    ===================================================================== */
 .uk-clients{
-    padding: 20px 0;
+    padding: 30px 0 50px;
+}
+.uk-clients-main_text{
+    margin-top: 8px;
+    z-index: 1;
+}
+.uk-clients-slider{
+    padding: 12px 20px 0;
+    z-index: 0;
 }
 .uk-clients-slider:before,
 .uk-clients-slider:after{
@@ -187,69 +270,125 @@ a:hover{
     width: 25px;
     z-index: 1;
 }
+.uk-clients-slider:before,
+.uk-clients-slider:after{
+    background-image: url(/images/icons/slider-shadow.png);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 94px;
+}
 .uk-clients-slider:before{
     left: 35px;
-    -webkit-box-shadow: inset 10px 0px 15px -10px rgba(0,0,0,0.3);
-    -moz-box-shadow: inset 10px 0px 15px -10px rgba(0,0,0,0.3);
-    box-shadow: inset 10px 0px 15px -10px rgba(0,0,0,0.3);
 }
 .uk-clients-slider:after{
     right: 0;
-    -webkit-box-shadow: inset -10px 0px 15px -10px rgba(0,0,0,0.3);
-    -moz-box-shadow: inset -10px 0px 15px -10px rgba(0,0,0,0.3);
-    box-shadow: inset -10px 0px 15px -10px rgba(0,0,0,0.3);
+    transform: rotate(180deg);
+}
+.uk-clients-slider-container{
+    margin: 0 -35px 0 -90px;
+}
+.uk-clients-slider-container:before,
+.uk-clients-slider-container:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 1;
+}
+.uk-clients-slider-container:before{
+    left: 0px;
+    width: 105px;
+}
+.uk-clients-slider-container:after{
+    right: -40px;
+    width: 55px;
+}
+.uk-clients-slider li{
+    padding: 0 5px;
 }
 .uk-clients-slider img{
     height: 65px;
 }
 /* ========================================================================
-   Стили шапки / Header styles
+   Стили карты / Map styles
    ===================================================================== */
 .uk-staticmap-marker{
     color: #00a8ff;
+    cursor: pointer;
 }
 .uk-staticmap-marker-small{
-    font-size: 14px;
+    font-size: 18px;
+    width: 14px;
+    height: 18px;
 }
 .uk-staticmap-marker-medium{
-    font-size: 26px;
+    font-size: 28px;
+    width: 26px;
+    height: 34px;
 }
 .uk-staticmap-marker-large{
     font-size: 52px;
+    width: 52px;
+    height: 64px;
 }
 .uk-staticmap-marker-image{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.uk-staticmap-marker-image.uk-staticmap-marker-small{
-    width: 14px;
-    height: 18px;
-}
-.uk-staticmap-marker-image.uk-staticmap-marker-medium{
-    width: 26px;
-    height: 34px;
-}
-.uk-staticmap-marker-image.uk-staticmap-marker-large{
-    width: 52px;
-    height: 64px;
-}
 .uk-staticmap-text{
     top: 40%;
     bottom: 0;
     left: 0;
 }
+.uk-staticmap-marker-caption{
+    font-size: 13px;
+    background: #fff;
+    padding: 5px 10px;
+    z-index: 2;
+}
+.uk-staticmap-marker-caption:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-top: 10px solid #fff;
+    position: absolute;
+    bottom: -10px;
+    left: 12px;
+}
+.uk-staticmap-marker-large .uk-staticmap-marker-caption{
+    left: 3px;
+    bottom: 20px;
+    min-height: 35px;
+}
+.uk-staticmap-marker-medium .uk-staticmap-marker-caption{
+    left: -9px;
+    bottom: 15px;
+}
+.uk-staticmap-marker-small .uk-staticmap-marker-caption{
+    bottom: 8px;
+    left: -15px;
+}
 /* ========================================================================
    Стили блока новостей / News block styles
    ===================================================================== */
 .uk-latest_news{
-    padding: 40px 0;
+    padding: 0 0 40px;
 }
 .uk-latest_news-all_news_link{
     border: none;
     background: #00a8ff;
     padding: 0 55px 0 15px;
     line-height: 40px;
+}
+.uk-latest_news-all_news_link:focus{
+    border: none;
+}
+.uk-latest_news-all_news_link:hover{
+    background: #2c2c2c;
 }
 .uk-latest_news-all_news_link-icon{
     background: #2c2c2c;
@@ -269,10 +408,36 @@ a:hover{
     margin: -9px 0 0 -9px;
     line-height: 1;
 }
-.uk-latest_news-block{
-    width: 100%;
-    height: 320px;
+.uk-latest_news-block,
+.uk-latest_news-block:focus{
     border: none;
+}
+.uk-latest_news-block{
+    height: 320px;
+}
+.uk-latest_news-block-image{
+    transition: all 0.2s ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.uk-latest_news-block:hover .uk-latest_news-block-image{
+    transform: scale(1.2);
+    transition: all 0.2s ease;
+}
+.uk-latest_news-block-image:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+.uk-latest_news-block:hover .uk-latest_news-block-image:after{
+    background: rgba(44, 44, 44, 0.2);
+    transition: all 0.2s ease;
 }
 .uk-latest_news-publish_up{
     top: 30px;
@@ -291,6 +456,86 @@ a:hover{
     right: 0;
     padding: 20px;
     background: rgba(44, 44, 44, 0.8);
+    transition: all 0.2s ease;
+}
+.uk-latest_news-block:hover .uk-latest_news-title{
+    padding-bottom: 50px;
+    transition: all 0.2s ease;
+}
+/* ========================================================================
+   Стили внутренних страниц / Inner pages styles
+   ===================================================================== */
+.tm-content{
+    padding-bottom: 40px;
+}
+.uk-pagetitle-container{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 110px;
+}
+.uk-articles-list{
+    margin-top: -30px;
+}
+.uk-article-blog{
+    margin-top: 30px;
+}
+/* ========================================================================
+   Стили пагинации / Pagination styles
+   ===================================================================== */
+.uk-pagination{
+     margin-top: 30px;
+     font-size: 0;
+    margin-left: -15px;
+}
+.uk-pagination  *{
+    margin-left: 15px;
+}
+.uk-pagination  a,
+.uk-pagination span{
+    min-width: 20px;
+    display: inline-block;
+    font-size: 13px;
+    padding: 9px 8px;
+    border: 1px solid #d1d1d1;
+}
+.uk-pagination span{
+    border: 1px solid #00a8ff;
+    background: #00a8ff;
+    color: #fff;
+}
+.uk-pagination .next,
+.uk-pagination .previous,
+.uk-pagination .start,
+.uk-pagination .end{
+    display: none;
+}
+.uk-pagination a:hover,
+.uk-pagination li.uk-active > *{
+    border: 1px solid #00a8ff;
+    color: #fff;
+    background: #00a8ff;
+}
+/* ========================================================================
+   Стили внутренних страниц / Inner pages styles
+   ===================================================================== */
+.uk-breadcrumb li > *{
+    color: #fff;
+}
+.uk-breadcrumb li > a:hover{
+    border-color: #fff;
+}
+.uk-breadcrumb > li:nth-child(n+2):before{
+    color: #fff;
+}
+.uk-article-full-image{
+    border: none;
+}
+.uk-related-articles .uk-latest_news-block + .uk-latest_news-block{
+    margin-top: 30px;
+}
+.uk-related-articles-title{
+    margin-bottom: 24px;
 }
 /* ========================================================================
    Стили футера / Footer styles
@@ -299,6 +544,9 @@ a:hover{
     background: #2c2c2c;
     margin: 0;
     padding: 40px 0;
+}
+.uk-nav-side > li.uk-active > a {
+    background: transparent;
 }
 .uk-md-phone-row,
 .uk-md-phone-row:focus{
@@ -309,4 +557,25 @@ a:hover{
 }
 .uk-phone-icon{
     font-size: 20px;
+}
+.tm-footer .uk-nav li + li{
+    margin-top: 13px;
+}
+.tm-footer .uk-nav a{
+    color: #fff;
+    border-bottom: 1px solid #616161;
+    display: inline;
+    padding: 0;
+    line-height: 1;
+}
+.tm-footer .uk-nav a:hover{
+    color: #7a92a2;
+    border-color: #7a92a2;
+}
+.uk-medialine-copyrate a{
+    color: #fff;
+}
+.uk-medialine-copyrate a:hover{
+    color: #7a92a2;
+    border-color: #7a92a2;
 }

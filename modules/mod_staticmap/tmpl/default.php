@@ -29,6 +29,11 @@ if ($params->get('marker_bg') != '0'){
 				<?php for ($i = 0; $i < $markersCount; $i++){ ?>
 					<div class="uk-position-absolute uk-staticmap-marker uk-staticmap-marker-<?php echo $markersList->size[$i];?>" style="left: <?php echo $markersList->left_indent[$i];?>; top: <?php echo $markersList->top_indent[$i];?>; width: <?php echo $params->get('marker_width');?>px; height: <?php echo $params->get('marker_height');?>px; <?php echo $markerBackground;?>">
 						<i class="icon-map-marker"></i>
+						<?php if($markersList->marker_text[$i]){?>
+							<div class="uk-staticmap-marker-caption uk-hidden uk-position-absolute">
+								<?php echo $markersList->marker_text[$i];?>
+							</div>
+						<?php } ?>
 					</div>
 				<?php } ?>
 			<?php } ?>

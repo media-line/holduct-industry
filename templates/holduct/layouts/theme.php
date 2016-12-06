@@ -1,7 +1,8 @@
 <?php
 // get theme configuration
 include($this['path']->path('layouts:theme.config.php'));
-
+$lang = JFactory::getLanguage();
+$langTag = $lang->getTag();
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>"  data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
@@ -69,39 +70,17 @@ include($this['path']->path('layouts:theme.config.php'));
 			</div>
 		<?php endif; ?>
 
+		<?php if ($this['widgets']->count('page-title')) : ?>
+			<div class="uk-pos-page-title">
+				<?php echo $this['widgets']->render('page-title'); ?>
+			</div>
+		<?php endif; ?>
+
 		<?php if ($this['widgets']->count('slider')) : ?>
 			<div class="uk-pos-slider">
 				<?php echo $this['widgets']->render('slider'); ?>
 			</div>
 		<?php endif; ?>
-
-
-		<div class="uk-clients uk-container uk-container-center uk-grid">
-
-			<div class="uk-clients-main_text uk-flex uk-flex-middle uk-width-1-4">
-				<div class="uk-h1 uk-gotham-light">Наши клиенты:</div>
-			</div>
-			<div class="uk-clients-slider uk-position-relative uk-width-3-4">
-				<div class="" data-uk-slider="{center:true, autoplay: true, autoplayInterval: 4000}">
-					<div class="uk-slider-container">
-						<ul class="uk-slider uk-grid-width-medium-1-5 uk-text-center">
-							<li><img src="/images/clients/clients-logo-1.jpg" alt=""/></li>
-							<li><img src="/images/clients/clients-logo-2.jpg" alt=""/></li>
-							<li><img src="/images/clients/clients-logo-3.jpg" alt=""/></li>
-							<li><img src="/images/clients/clients-logo-4.jpg" alt=""/></li>
-							<li>
-								<img src="/images/clients/clients-logo-1.jpg" alt=""/>
-							</li>
-							<li><img src="/images/clients/clients-logo-2.jpg" alt=""/></li>
-							<li><img src="/images/clients/clients-logo-3.jpg" alt=""/></li>
-							<li><img src="/images/clients/clients-logo-4.jpg" alt=""/></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
 
 		<?php if ($this['widgets']->count('top-a')) : ?>
 		<div class="uk-container uk-container-center">
@@ -171,29 +150,52 @@ include($this['path']->path('layouts:theme.config.php'));
 			<?php endif; ?>
 
 			<div class="uk-grid">
-				<div class="uk-width-1-4">
+				<div class="uk-width-1-3">
 					<?php
 						echo $this['widgets']->render('footer-left');
 					?>
 
-					<?php if($this['widgets']->render('site-copyrate')); ?>
-						<div class="uk-site-copyrate">
-							&copy;2009-<?php echo $this['widgets']->render('site-copyrate'); ?>
+					<?php if($this['widgets']->render('site-copyrate')){ ?>
+						<div class="uk-site-copyrate uk-text-contrast uk-text-large">
+							&copy;2009-<?php echo date('Y'); ?>
 							<?php echo $this['widgets']->render('site-copyrate'); ?>
 						</div>
 					<?php } ?>
 				</div>
 
-				<div class="uk-width-1-2">
+				<div class="uk-width-1-6">
 					<?php
 						echo $this['widgets']->render('footer');
 					?>
 				</div>
 
-				<div class="uk-width-1-4">
+				<div class="uk-width-1-2">
 					<?php
 						echo $this['widgets']->render('footer-right');
 					?>
+					<div class="uk-medialine-copyrate uk-text-primary uk-text-right uk-margin-top">
+						<?php if (JURI::current() == JURI::base()){ ?>
+							<?php if ($langTag == 'ru-RU'){ ?>
+								Разработка сайта - <a href="http://www.medialine.by" target="_blank">Медиа Лайн</a>
+							<?php } ?>
+							<?php if ($langTag == 'en-GB'){ ?>
+									Site development - <a href="http://www.medialine.by" target="_blank"> Media Line </a>
+							<?php } ?>
+							<?php if ($langTag == 'pl-PL'){ ?>
+									Zagospodarowanie terenu - <a href="http://www.medialine.by" target="_blank"> Mediów Linia </a>
+							<?php } ?>
+						<?php } else {?>
+							<?php if ($langTag == 'ru-RU'){ ?>
+								Разработка сайта - <a href="http://www.medialine.by" target="_blank" rel="nofollow">Медиа Лайн</a>
+							<?php } ?>
+							<?php if ($langTag == 'en-GB'){ ?>
+								Site development - <a href="http://www.medialine.by" target="_blank" rel="nofollow"> Media Line </a>
+							<?php } ?>
+							<?php if ($langTag == 'pl-PL'){ ?>
+								Zagospodarowanie terenu - <a href="http://www.medialine.by" target="_blank" rel="nofollow"> Media Line </a>
+							<?php } ?>
+						<?php } ?>
+					</div>
 				</div>
 			</div>
 

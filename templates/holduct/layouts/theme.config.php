@@ -104,6 +104,9 @@ $body_config['style']    = $config->get('style');
 
 $config->set('body_config', json_encode($body_config));
 
+//custom meta teg
+$head[] = sprintf('<meta name="viewport" content="width=1200" />');
+
 /*
  * Add assets
  */
@@ -116,11 +119,13 @@ $this['asset']->addFile('css', 'css:custom.css');
 // add scripts
 $this['asset']->addFile('js', 'js:uikit.js');
 $this['asset']->addFile('js', 'warp:vendor/uikit/js/components/slider.js');
-$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/slideset.js');
+//$this['asset']->addFile('js', 'warp:vendor/uikit/js/components/lightbox.js');
 $this['asset']->addFile('js', 'js:theme.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
+    $head[] = sprintf('<!-- предупреждение о том, что браузер устарел -->
+    <!--[if lte IE 10]><script src="http://phpbbex.com/oldies/oldies.js" charset="utf-8"></script><![endif]-->');
 	$head[] = sprintf('<!--[if IE 8]><link rel="stylesheet" href="%s"><![endif]-->', $this['path']->url('css:ie8.css'));
     $head[] = sprintf('<!--[if lte IE 8]><script src="%s"></script><![endif]-->', $this['path']->url('js:html5.js'));
 }

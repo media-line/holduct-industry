@@ -9,6 +9,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
+
 ?>
 
 <div class="uk-latest_news">
@@ -21,9 +22,9 @@ defined('_JEXEC') or die;
 			</div>
 		</div>
 	<?php } ?>
-	<?php if(($params->get('all_news_link')) && ($params->get('all_news_text'))){ ?>
+	<?php if($menuItem != '' && ($params->get('all_news_text'))){ ?>
 		<div class="uk-width-1-3 uk-text-right">
-			<a class="uk-latest_news-all_news_link uk-text-contrast uk-text-small uk-text-uppercase uk-display-inline-block uk-position-relative" href="<?php echo $params->get('all_news_link'); ?>">
+			<a class="uk-latest_news-all_news_link uk-text-contrast uk-text-small uk-text-uppercase uk-display-inline-block uk-position-relative" href="<?php echo $menuItem->route; ?>">
 				<?php echo $params->get('all_news_text'); ?>
 				<span class="uk-latest_news-all_news_link-icon uk-position-absolute"></span>
 			</a>
@@ -39,7 +40,8 @@ defined('_JEXEC') or die;
 				$publishDate = $publishDate->format('d F y');
 			?>
 
-			<a class="uk-latest_news-block uk-inline-block uk-position-relative uk-text-contrast" href="<?php echo $item->link; ?>" style="background-image: url('<?php echo $images->image_intro; ?>');">
+			<a class="uk-latest_news-block uk-cover uk-inline-block uk-position-relative uk-text-contrast uk-width-1-1" href="<?php echo $item->link; ?>">
+				<span class="uk-latest_news-block-image uk-display-inline-block uk-width-1-1 uk-height-1-1 uk-position-relative" style="background-image: url('<?php echo $images->image_intro; ?>');"></span>
 
 				<span class="uk-latest_news-publish_up uk-position-absolute uk-text-small"><?php echo $publishDate; ?></span>
 

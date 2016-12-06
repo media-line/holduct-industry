@@ -56,5 +56,10 @@ if ($params->get('show_readmore') && $this->item->readmore) {
 	}
 }
 
+$args['url'] = $link;
+
+//Метка означающая что это блог категории
+$args['isBlog'] = $link;
+
 // render template
 echo $warp['template']->render('article', $args);

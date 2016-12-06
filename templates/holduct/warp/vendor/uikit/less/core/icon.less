@@ -52,7 +52,7 @@
 /* ========================================================================
    Component: Icon
  ========================================================================== */
-
+/*
 @font-face {
     font-family: 'FontAwesome';
     src: url("@{icon-font-path}/fontawesome-webfont.woff2") format('woff2'),
@@ -61,7 +61,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+*/
 /*
  * 1. Allow margin
  * 2. Prevent inherit font style
@@ -71,7 +71,7 @@
  */
 
 [class*='uk-icon-'] {
-    font-family: FontAwesome;
+    /*font-family: FontAwesome;*/ //remuve comment
     /* 1 */
     display: inline-block;
     /* 2 */
@@ -83,6 +83,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* 6 */
 [class*='uk-icon-'],
@@ -188,7 +189,7 @@
 
 /* Icon mapping
  ========================================================================== */
-
+/*
 .uk-icon-glass:before { content: "\f000"; }
 .uk-icon-music:before { content: "\f001"; }
 .uk-icon-search:before { content: "\f002"; }
@@ -915,7 +916,7 @@
 .uk-icon-wpbeginner:before { content: "\f297"; }
 .uk-icon-wpforms:before { content: "\f298"; }
 .uk-icon-yoast:before { content: "\f2b1"; }
-
+*/
 
 // Hooks
 // ========================================================================

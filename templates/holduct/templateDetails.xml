@@ -44,6 +44,7 @@
         <position settings="">headerbar</position>
         <position settings="">breadcrumbs</position>
         <position>slider</position>
+        <position>page-title</position>
         <position>top-a</position>
         <position>top-b</position>
         <position>bottom-a</position>

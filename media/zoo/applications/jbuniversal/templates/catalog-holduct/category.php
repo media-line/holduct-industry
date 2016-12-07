@@ -39,12 +39,12 @@ if (!$this->app->jbcache->start($this->params->get('config.lastmodified'))) {
     }
 
     // subcategories render
-    if (isset($category)) {
+    /*if (isset($category)) {
         $categories = $this->category->getChildren();
         if ($this->params->get('template.subcategory_show', 1) && count($categories)) {
             echo $this->app->jblayout->render('subcategories', $categories);
         }
-    }
+    }*/
 
     // category items render
     if ($this->params->get('config.items_show', 1) && count($this->items)) {

@@ -23,22 +23,47 @@ if ($this->checkPosition('link')){
     $link = '#';
 }
 ?>
+<div class="uk-product-teaser">
+    <div class="uk-grid uk-grid-collapse">
+        <?php if ($this->checkPosition('media')){ ?>
 
-<a class="uk-latest_news-block uk-cover uk-inline-block uk-position-relative uk-text-contrast uk-width-1-1" href="<?php echo $link; ?>">
-    <span class="uk-latest_news-block-image uk-display-inline-block uk-width-1-1 uk-height-1-1 uk-position-relative" <?php echo $background; ?>></span>
+            <div class="uk-width-1-3">
+                <a href="<?php echo $link; ?>" class="uk-product-teaser-image uk-display-inline-block" <?php echo $background; ?>></a>
+            </div>
 
-    <?php if ($this->checkPosition('date')){ ?>
-        <span class="uk-latest_news-publish_up uk-position-absolute uk-text-small"><?php echo $this->renderPosition('date'); ?></span>
-    <?php } ?>
+            <div class="uk-width-2-3 uk-flex uk-flex-middle">
+                <div>
+                    <?php if ($this->checkPosition('title')){ ?>
+                        <div class="uk-margin-bottom">
+                            <a href="<?php echo $link; ?>" class="uk-product-teaser-title uk-h5 uk-text-uppercase">
+                                <?php echo $this->renderPosition('title'); ?>
+                            </a>
+                        </div>
+                    <?php } ?>
 
-    <?php if ($this->checkPosition('hits')){ ?>
-        <span class="uk-latest_news-hits uk-position-absolute">
-            <i class="icon-eye uk-text-top"></i>
-            <span class="uk-text-top uk-text-small uk-text-middle uk-margin-small-left"><?php echo $this->renderPosition('hits'); ?></span>
-		</span>
-    <?php } ?>
+                    <?php if ($this->checkPosition('content')){ ?>
+                        <div class="uk-product-teaser-content">
+                            <?php echo $this->renderPosition('content'); ?>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="uk-width-1-1">
+                <?php if ($this->checkPosition('title')){ ?>
+                    <div class="uk-margin-bottom">
+                        <a href="<?php echo $link; ?>" class="uk-product-teaser-title uk-h5 uk-text-uppercase">
+                            <?php echo $this->renderPosition('title'); ?>
+                        </a>
+                    </div>
+                <?php } ?>
 
-    <?php if ($this->checkPosition('title')){ ?>
-        <span class="uk-latest_news-title uk-position-absolute"><?php echo $this->renderPosition('title'); ?></span>
-    <?php } ?>
-</a>
+                <?php if ($this->checkPosition('content')){ ?>
+                    <div class="uk-product-teaser-content">
+                        <?php echo $this->renderPosition('content'); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    </div>
+</div>

@@ -11,4 +11,21 @@
 defined('_JEXEC') or die('Restricted access');
 
 ?>
-<!-- empty -->
+<div class="uk-grid">
+    <div class="uk-width-1-4">
+        <div class="uk-catalog-sidebar">
+            <?php
+            $document = JFactory::getDocument();
+            $renderer = $document->loadRenderer('modules');
+            $options = array('style' => 'xhtml');
+            $position = 'in-template-sidebar';
+            echo $renderer->render($position, $options, null);
+            ?>
+        </div>
+    </div>
+
+    <div class="uk-width-3-4">
+        <!-- empty -->
+    </div>
+</div>
+

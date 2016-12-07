@@ -93,7 +93,8 @@ $langTag = $lang->getTag();
 		<?php endif; ?>
 
 		<?php if ($this['widgets']->count('main-top + main-bottom + sidebar-a + sidebar-b') || $this['config']->get('system_output', true)) : ?>
-		<div class="uk-container uk-container-center">
+		<div class="uk-cover">
+		  <div class="uk-container uk-container-center">
 			<div id="tm-middle" class="tm-middle uk-grid" data-uk-grid-match data-uk-grid-margin>
 
 				<?php if ($this['widgets']->count('main-top + main-bottom') || $this['config']->get('system_output', true)) : ?>
@@ -129,6 +130,7 @@ $langTag = $lang->getTag();
 				<?php endforeach ?>
 
 			</div>
+		  </div>
 		</div>
 		<?php endif; ?>
 

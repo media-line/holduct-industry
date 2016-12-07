@@ -22,61 +22,46 @@ if ($this->checkPosition('media')){
 }
 ?>
 
-<?php if ($this->checkPosition('related')) { ?>
-
-    <div class="uk-grid">
-        <div class="uk-width-2-3">
-            <?php if ($this->checkPosition('media')) : ?>
-                <a class="uk-article-full-image uk-align-left" href="<?php echo $href; ?>" data-uk-lightbox>
-                    <?php echo $this->renderPosition('media'); ?>
-                </a>
-            <?php endif; ?>
-
-            <?php if ($this->checkPosition('title')) : ?>
-                <div class="uk-article-title">
-                    <?php echo $this->renderPosition('title'); ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($this->checkPosition('content')) : ?>
-                <?php echo $this->renderPosition('content'); ?>
-            <?php endif; ?>
-            <div class="uk-margin-large-top">
-                <a class="uk-latest_news-all_news_link js-back-button uk-text-contrast uk-text-small uk-text-uppercase uk-display-inline-block uk-position-relative" href="#">
-                    <?php echo JText::_('COM_ZOO_FULL_BACK_BUTTON'); ?>		
-                    <span class="uk-latest_news-all_news_link-icon uk-position-absolute"></span>
-                </a>
+<div class="uk-grid">
+    <div class="uk-width-1-2">
+        <?php if ($this->checkPosition('title')) : ?>
+            <div class="uk-product-full-title uk-article-title uk-margin-large-bottom uk-text-bold">
+                <?php echo $this->renderPosition('title'); ?>
             </div>
-        </div>
-        <div class="uk-width-1-3">
-            <div class="uk-related-articles">
-                <div class="uk-related-articles-title uk-article-title"><?php echo JText::_('COM_ZOO_RELATED_ARTICLES_TITLE'); ?></div>
-                <?php echo $this->renderPosition('related'); ?>
+        <?php endif; ?>
+
+        <?php if ($this->checkPosition('main')) : ?>
+            <div class="uk-product-full-main">
+                <?php echo $this->renderPosition('main'); ?>
             </div>
-        </div>
+        <?php endif; ?>
     </div>
-<?php } else {?>
-    <?php if ($this->checkPosition('media')) : ?>
-        <a class="uk-article-full-image uk-align-left" href="<?php echo $href; ?>" data-uk-lightbox>
-            <?php echo $this->renderPosition('media'); ?>
-        </a>
-    <?php endif; ?>
 
-    <?php if ($this->checkPosition('title')) : ?>
-        <div class="uk-article-title">
-            <?php echo $this->renderPosition('title'); ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if ($this->checkPosition('content')) : ?>
-        <?php echo $this->renderPosition('content'); ?>
-    <?php endif; ?>
-
-    <div class="uk-margin-large-top">
-        <a class="uk-latest_news-all_news_link js-back-button uk-text-contrast uk-text-small uk-text-uppercase uk-display-inline-block uk-position-relative" href="#">
-            <?php echo JText::_('COM_ZOO_FULL_BACK_BUTTON'); ?>
-            <span class="uk-latest_news-all_news_link-icon uk-position-absolute"></span>
-        </a>
+    <div class="uk-width-1-2">
+        <?php if ($this->checkPosition('media')) : ?>
+            <a class="uk-product-full-image uk-align-left" href="<?php echo $href; ?>" data-uk-lightbox>
+                <?php echo $this->renderPosition('media'); ?>
+            </a>
+        <?php endif; ?>
     </div>
-    
-<?php } ?>
+</div>
+
+<?php if ($this->checkPosition('highlight')) : ?>
+    <div class="uk-pruduct-full-highlight uk-text-contrast">
+        <?php echo $this->renderPosition('highlight'); ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($this->checkPosition('additional')) : ?>
+    <div class="uk-pruduct-full-additional">
+        <?php echo $this->renderPosition('additional'); ?>
+    </div>
+<?php endif; ?>
+<?php
+    $document = JFactory::getDocument();
+    $renderer = $document->loadRenderer('modules');
+    $options = array('style' => 'xhtml');
+    $position = 'in-template-product';
+    echo $renderer->render($position, $options, null);
+?>
+

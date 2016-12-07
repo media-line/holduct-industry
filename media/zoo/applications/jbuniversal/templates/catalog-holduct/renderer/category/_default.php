@@ -24,7 +24,7 @@ if (!$title) {
 
 ?>
 <?php if ((int)$vars['params']->get('template.category_show', 1)) : ?>
-    <div class="category rborder alias-<?php echo $category->alias;?>">
+    <div class="alias-<?php echo $category->alias;?>">
 
         <?php if ((int)$vars['params']->get('template.category_subtitle', 1) && !empty($subTitle)) : ?>
             <h2 class="subtitle"><?php echo $subTitle; ?></h2>

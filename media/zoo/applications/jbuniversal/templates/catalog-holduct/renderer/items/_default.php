@@ -15,7 +15,24 @@ if ((int)$this->getView()->application->params->get('global.config.column_height
 }
 
 $this->app->jbdebug->mark('layout::items::start');
+?>
+<div class="uk-grid">
+    <div class="uk-width-1-4">
+        <div class="uk-catalog-sidebar">
+            <?php
+            $document = JFactory::getDocument();
+            $renderer = $document->loadRenderer('modules');
+            $options = array('style' => 'xhtml');
+            $position = 'in-template-sidebar';
+            echo $renderer->render($position, $options, null);
+            ?>
+        </div>
+    </div>
 
-echo $this->columns('item', $vars['objects'], true);
-
+    <div class="uk-width-3-4">
+        <?php echo $this->columns('item', $vars['objects'], true); ?>
+    </div>
+</div>
+<?php
 $this->app->jbdebug->mark('layout::items::finish');
+?>

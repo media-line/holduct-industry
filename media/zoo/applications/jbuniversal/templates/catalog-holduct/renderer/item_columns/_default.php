@@ -16,7 +16,6 @@ if ($vars['count']) {
 
     $count = $vars['count'];
 
-    echo '<div class="uk-articles-list uk-grid">';
 
     $j = 0;
     foreach ($vars['objects'] as $object) {
@@ -31,17 +30,13 @@ if ($vars['count']) {
             $last .= ' last';
         }
 
-        echo'<div class="uk-article-blog uk-width-1-3">' . $object
-            . '</div>';
+        echo  $object;
 
         /*if ($isLast) {
             echo '<div class="clear clr"></div>';
         }*/
 
     }
-
-    echo '</div>';
-    echo '<div class="clear clr"></div>';
 
 }
 

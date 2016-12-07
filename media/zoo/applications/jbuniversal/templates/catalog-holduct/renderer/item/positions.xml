@@ -14,15 +14,15 @@
     <positions layout="full">
         <position name="title">Заголовок</position>
         <position name="media">Изображение</position>
-        <position name="content">Текст</position>
-        <position name="related">Похожие новости</position>
+        <position name="main">Основной текст</position>
+        <position name="highlight">Текст на синем фоне</position>
+        <position name="additional">Дополнительный текст</position>
     </positions>
     <positions layout="teaser">
-        <position name="title">Заголовок</position>
-        <position name="date">Дата</position>
-        <position name="hits">Просмотры</position>
         <position name="media">Изображение</position>
-        <position name="link">Cсылка</position>
+        <position name="title">Заголовок</position>
+        <position name="content">Текст</position>
+        <position name="link">Ссылка</position>
     </positions>
 
     <positions layout="related">

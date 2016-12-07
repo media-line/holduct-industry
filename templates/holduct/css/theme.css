@@ -3465,21 +3465,21 @@ select.uk-form-width-mini {
   overflow: visible;
   /* 5 */
   font: inherit;
-  color: #000000;
+  color: #ffffff;
   /* 6 */
   text-transform: none;
   /* 7 */
   display: inline-block;
   box-sizing: border-box;
-  padding: 0 12px;
-  background: #eeeeee;
+  padding: 0 70px;
+  background: #00a8ff;
   vertical-align: middle;
   /* 8 */
-  line-height: 30px;
+  line-height: 40px;
   /* 9 */
-  min-height: 30px;
+  min-height: 40px;
   /* 10 */
-  font-size: 1rem;
+  font-size: 11px;
   /* 11 */
   text-decoration: none;
   text-align: center;
@@ -3495,8 +3495,8 @@ select.uk-form-width-mini {
  */
 .uk-button:hover,
 .uk-button:focus {
-  background-color: #f5f5f5;
-  color: #000000;
+  background-color: #2c2c2c;
+  color: #ffffff;
   /* 2 */
   outline: none;
   /* 3 */
@@ -3505,8 +3505,8 @@ select.uk-form-width-mini {
 /* Active */
 .uk-button:active,
 .uk-button.uk-active {
-  background-color: #dddddd;
-  color: #000000;
+  background-color: #2c2c2c;
+  color: #ffffff;
 }
 /* Color modifiers
  ========================================================================== */
@@ -6400,7 +6400,7 @@ a.uk-thumbnail:focus {
   color: #999999 !important;
 }
 .uk-text-primary {
-  color: #7a92a2 !important;
+  color: #00a8ff !important;
 }
 .uk-text-success {
   color: #659f13 !important;
